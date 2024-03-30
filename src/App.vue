@@ -1,5 +1,12 @@
 <script setup>
-  import {ref} from 'vue'
+  import {ref} from 'vue';
+
+  const todos = ref([
+    {id:1, title:"APRENDIENDO VUE3", description:"EN EL TALLER DE ISI 1"},
+    {id:2, title:"APRENDIENDO REACT", description:"EN EL TALLER DE ISI 2"},
+    {id:3, title:"APRENDIENDO JAVASCRIPT", description:"EN EL TALLER DE ISI 3"},
+  ]);
+
 </script>
 
 <template>
@@ -54,8 +61,9 @@
           class="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 border-t border-gray-200 pt-10 sm:mt-8 sm:pt-8 lg:mx-0 lg:max-w-none lg:grid-cols-3"
         >
           <article
+             v-for="todo in todos"
             class="flex max-w-xl flex-col items-start justify-between shadow-xl p-6 rounded-lg transition-colors duration-200 ease-in-out transform"
-            
+           
           >
             <div class="group relative">
               <h3
@@ -65,11 +73,11 @@
                   class="block transition-colors duration-200"
             
                 >
-                 titulo de la app
+                {{ todo.title }}
                 </p>
               </h3>
               <p class="mt-5 text-sm leading-6 text-gray-600">
-                Hola mundo description
+               {{ todo.description }}
               </p>
             </div>
             <div class="relative mt-8 flex items-center justify-between gap-x-28">
